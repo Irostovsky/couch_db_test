@@ -6,4 +6,6 @@ class Person < CouchRest::Model::Base
   timestamps!
 
   view_by :name
+  
+  validates :name, :age, :presence => true
 end
