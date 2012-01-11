@@ -1,3 +1,9 @@
+
+<% Person.tag_list.reduce.group_level(1).rows.each do |row| %>
+  <%= content_tag :div,  "#{row.key}: #{row.value}" %>
+<% end %>
+
+
 <h1>Listing people</h1>
 
 <table>
@@ -5,6 +11,7 @@
     <th><%= link_to "Name", people_path(:sort => :name) %></th>
     <th><%= link_to "Age", people_path(:sort => :age) %></th>
     <th>Tags</th>
+    <th>Tag count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,10 +21,8 @@
   <tr>
     <td><%= person.name %></td>
     <td><%= person.age %></td>
-    <td>
-      <%= person.tags %>
-      <%= person.tags_count %>
-    </td>
+    <td><%= person.tags %></td>
+    <td><%= person.tags_count %></td>
     <td><%= link_to 'Show', person %></td>
     <td><%= link_to 'Edit', edit_person_path(person) %></td>
     <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>

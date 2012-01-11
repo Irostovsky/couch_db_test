@@ -8,6 +8,19 @@ class Person < CouchRest::Model::Base
   design do
     view :by_name
     view :by_age
+    view :tag_list,
+      :map =>
+        "function(doc) {
+          if (doc['couchrest-type'] == 'Person' && doc.tags) {
+            doc.tags.forEach(function(tag){
+              emit(tag, 1);
+            });
+          };
+        }",
+      :reduce =>
+        "function(keys, values, rereduce) {
+          return sum(values);
+        }"
   end  
   
   validates :name, :age, :presence => true
