@@ -5,7 +5,10 @@ class Person < CouchRest::Model::Base
   property :tags, [String]
   timestamps!
 
-  # view_by :name
+  design do
+    view :by_name
+    view :by_age
+  end  
   
   validates :name, :age, :presence => true
   validates :age, :numericality => {:greater_than => 0}

@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Age</th>
+    <th><%= link_to "Name", people_path(:sort => :name) %></th>
+    <th><%= link_to "Age", people_path(:sort => :age) %></th>
     <th>Tags</th>
     <th></th>
     <th></th>

@@ -2,7 +2,15 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    sort = params[:sort]
+    @people = case sort
+    when :name.to_s
+      Person.by_name.all
+    when :age.to_s
+      Person.by_age.all
+    else
+      @people = Person.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
