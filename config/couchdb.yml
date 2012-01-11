@@ -1,21 +1,21 @@
+# development: &development
+#   protocol: 'http'
+#   host: localhost
+#   port: 5984
+#   prefix: coach_db_test
+#   suffix: development
+#   username:
+#   password:
+
 development: &development
   protocol: 'http'
-  host: localhost
+  host: xan.iriscouch.com
   port: 5984
   prefix: coach_db_test
   suffix: development
   username:
   password:
 
-# development: &development
-#   protocol: 'http'
-#   host: xan.iriscouch.com
-#   port: 5984
-#   prefix: coach_db_test
-#   suffix: development
-#   username:
-#   password:
-# 
 test:
   <<: *development
   suffix: test
